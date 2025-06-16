@@ -1,0 +1,21 @@
+---
+- name: Apache deployment on all web servers.
+  hosts: web 
+  tasks:
+    - name: 1st-task 
+      ansible.builtin.debug:
+        msg: "This is my 1st task" 
+
+    - name: 2nd-task 
+      ansible.builtin.debug:
+        msg: "This is my 1st task" 
+
+    - name: 3rd-task 
+      ansible.builtin.debug:
+        msg: "This is my 1st task" 
+
+    - name: Install the latest version of Apache
+      ansible.builtin.dnf:
+        name: httpd
+        state: latest
+
