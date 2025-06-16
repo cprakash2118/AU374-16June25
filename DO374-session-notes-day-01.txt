@@ -1,5 +1,14 @@
 https://github.com/cprakash2118/AU374-16June25
 
+9:30 to 11:30am   - session 
+11:30 to 11:45    - Tea Break 
+11:45 to 1:00pm   - session 
+1:00pm to 1:45    - Lunch Break
+1:45 to 3:30pm    - session 
+3:30pm to 3:45    - Tea Break 
+3:45pm to 5:30    - session
+
+
 ##########
 Point-01-#
 # Product Name - Ansible Automation Platform (2.X) - AAP.
@@ -80,11 +89,53 @@ user3/password - [both required password - authentication & authorization]
 4) /etc/ansible/ansible.cfg 
 
 
-
-
-
-
 - ansible-navigator.yaml 
+1) ANSIBLE_NAVIGATORC_CONFIG=/location/of/ansible.cfg/file 
+2) ansible.cfg must be on current working dir 
+3) User's home dir [.ansible.cfg] file - user1 -> /home/user1/.ansible.cfg 
+
+ansible-navigator is an interface which seperate "ansible control" node and "ansible-execution" env.
+- ansible control node  - Installed ansible
+- ansible-execution env - containerized env, where ansible-navigator run the playbook.
+
+======
+Apache deploy:-
+ - installed packages (pkg-name = httpd, firewalld)
+ - start/enable services ( svc-name = httpd; firewalld)
+ - Application deployment (index.html as application)
+ - Enable port (80/tcp)
+ - Verify 
+ 
+ 
+ - list of domain
+   - network 
+   - unix 
+   - storage 
+   - wintel 
+   
+   
+ - list of resources
+   - name: john 
+     skill-1: unix 
+	 skill-2: storage 
+	 
+   - name: joe 
+     skill-1: window 
+	 skill-2: network 
+	 
+	 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
