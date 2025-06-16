@@ -1,0 +1,30 @@
+https://github.com/cprakash2118/AU374-16June25
+
+Point-01-#
+# Product Name - Ansible Automation Platform (2.X) - AAP.
+- Access to resources (w.r.t Training)
+  AU374 (DO374) - EX374 
+- Red Hat Online Learning (ROL):-
+  https://rol.redhat.com  [user/password]
+- Access resources [Bookself & LABS]
+- Access LABS [acess workstation]
+
+# Classroom Environment:-
+1- Users details:-
+   student/student  [sudo access with password]
+   devops/redhat    [sudo access without password]
+   root/redhat 
+   
+2- VMs/Server details:-
+   workstation.lab.example.com  [jump server; control node]
+   servera-f.lab.example.com    [Managed hosts - RHEL nodes]
+   hub.lab.example.com          [Ansible automation HUB]
+   controller.lab.example.com   [Web Based AAP mgmt]
+   utility.lab.example.com      [Additional services - DNS etc ]
+   bastion.lab.example.com      [COnnect student network to Classroom network]
+
+3- Network/Domain 
+   student network   - 172.25.250.0/24 - lab.example.com 
+   classroom network - 172.25.252.0/24 - example.com 
+   
+
