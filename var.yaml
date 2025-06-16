@@ -1,0 +1,11 @@
+
+    package_list:
+      - httpd
+      - firewalld 
+    service_list:
+      - httpd
+      - firewalld 
+    documentroot: /var/www/html/
+    port_list:
+      - http
+      - https
