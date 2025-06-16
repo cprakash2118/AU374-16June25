@@ -1,0 +1,44 @@
+---
+- name: Description about play - Apache deployment.
+  hosts: web 
+  vars:
+    package_list:
+      - httpd
+      - firewalld 
+    service_list:
+      - httpd
+      - firewalld 
+    documentroot: /var/www/html/
+    port_list:
+      - http
+      - https
+  tasks:
+    #- name: Task-01 - Install required packages.
+    #  ansible.builtin.yum:
+    #    name: "{{ package_list }}" 
+    #    state: present 
+
+    - name: Task-01 - Install required packages.
+      ansible.builtin.yum:
+        name: "{{ item }}" 
+        state: present 
+      loop: "{{ package_list }}"
+     
+    - name: Task-02 - start/enable services ( svc-name = httpd; firewalld)
+      ansible.builtin.service:
+        name: "{{ item }}"
+        state: started
+      loop: "{{ service_list }}"
+
+    - name: task-03 - Application deployment (index.html as application)
+      ansible.builtin.copy:
+        content: "# This is my application deployment \n"
+        dest: "{{documentroot}}/index.html"
+     
+    - name: Task-04 -  Enable port (80/tcp) via firewalld 
+      ansible.posix.firewalld:
+        service: "{{ item }}"
+        permanent: yes
+        state: enabled
+        immediate: yes
+      loop: "{{ port_list }}"
