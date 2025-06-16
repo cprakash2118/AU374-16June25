@@ -1,5 +1,6 @@
 https://github.com/cprakash2118/AU374-16June25
 
+##########
 Point-01-#
 # Product Name - Ansible Automation Platform (2.X) - AAP.
 - Access to resources (w.r.t Training)
@@ -26,5 +27,89 @@ Point-01-#
 3- Network/Domain 
    student network   - 172.25.250.0/24 - lab.example.com 
    classroom network - 172.25.252.0/24 - example.com 
+   
+   
+##########
+Point-02-#
+# TOC - 9 units.
+
+Important concepts w.r.t AAP.
+
+1-)
+workstation.lab.example.com [jump server ; control node]
+# dnf install ansible-navigator
+or
+# dnf install ansible-core ansible-navigator
+FYI- control node - Where ansile (ansible-navigator) installed.
+
+managed hosts:
+servera.lab.example.com
+serverb.lab.example.com
+serverc.lab.example.com
+serverd.lab.example.com
+servere.lab.example.com
+serverf.lab.example.com
+
+
+FYI- From control nodes (workstation) able to login (via ssh) to all managed hosts (servera-f).
+Note: As AAP is agentless (ssh login), not required anything else to be installed.
+
+2-)
+users details:-
+user1/password - [passwordless authentication (ssh login) & authorization (sudo access)].
+user2/password - [passwordless authentication (ssh login), with password authorization (sudo access)].
+user3/password - [both required password - authentication & authorization]
+
+
+3-) Configuration & inventory files.
+- hosts/inventory    [managed hosts - Linux/Unix/Windows/Network-Device]
+  /etc/ansible/hosts [default inventory file]
+
+  vim inventory
+  [prod]
+  servera.lab.example.com 
+  
+  [dev]
+  serverb.lab.example.com 
+  
+- ansible.cfg 
+
+1) ANSIBLE_CONFIG=/location/of/ansible.cfg/file 
+2) ansible.cfg must be on current working dir 
+3) User's home dir [.ansible.cfg] file - user1 -> /home/user1/.ansible.cfg 
+4) /etc/ansible/ansible.cfg 
+
+
+
+
+
+
+- ansible-navigator.yaml 
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+ 
+
    
 
