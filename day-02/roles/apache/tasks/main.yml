@@ -1,0 +1,27 @@
+---
+# tasks file for apache
+- name: INstall apache - task01
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    state: present 
+  loop: "{{ pkg_list }}"
+
+- name: Start & enable servies.
+  ansible.builtin.service: 
+    name: "{{ item }}"
+    state: started 
+    enabled: true 
+  loop: "{{ svc_list }}"
+   
+- name: Deploy application.
+  ansible.builtin.copy:
+    content: "Welcome to webserver \n"
+    dest: /var/www/html/index.html
+
+- name: changes on configuration level via dbug.
+  ansible.builtin.debug:
+    msg: "Config changes has been done"
+  #changed_when: false
+  changed_when: true
+  notify:
+    - restart apache

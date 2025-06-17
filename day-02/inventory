@@ -1,0 +1,17 @@
+[prod]
+server[a:c].lab.example.com 
+
+[dev]
+serverd.lab.example.com 
+servere.lab.example.com 
+
+[test]
+serverf.lab.example.com 
+
+[nonprod:children]
+dev
+test
+
+[web]
+serverf.lab.example.com 
+

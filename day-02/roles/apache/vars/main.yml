@@ -1,0 +1,10 @@
+---
+# vars file for apache
+apache_service: httpd
+pkg_list:
+ - httpd
+ - firewalld 
+
+svc_list:
+ - httpd
+ - firewalld 
