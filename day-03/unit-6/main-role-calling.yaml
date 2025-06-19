@@ -1,0 +1,6 @@
+---
+- name: Role calling 
+  hosts: servera.lab.example.com
+  roles:
+    - role-01 
+    - role-02 

@@ -1,0 +1,12 @@
+---
+- name: MOTD setup for all prod servers.
+  hosts: all
+  tasks:
+    - name: Setup MOTD statement.
+      ansible.builtin.template:
+        src: source_file.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'
+ 

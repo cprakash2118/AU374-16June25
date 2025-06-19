@@ -1,0 +1,6 @@
+---
+# vars file for role-02
+role_name1: role-02
+task_name1: task-01
+task_name2: task-02
+

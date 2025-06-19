@@ -1,0 +1,15 @@
+---
+- name: Calling group_vars variables.
+  hosts: dev,web 
+  tasks:
+    - name: "This is for dev "
+      ansible.builtin.debug:
+        msg: "Package name is {{ package_name }} & userName is {{user_name }}"
+      when: inventory_hostname in groups['dev']
+
+    - name: "This is for web "
+      ansible.builtin.debug:
+        msg: "Page name is {{ web_page }} & userName is {{web_user }}"
+      when: inventory_hostname in groups['web']
+
+

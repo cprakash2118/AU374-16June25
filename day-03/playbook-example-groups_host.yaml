@@ -1,0 +1,15 @@
+---
+- name: Group_hosts example 
+  hosts: all 
+  vars:
+   myvar1: my-value1-from-playbook
+   myvar2: my-value2-from-playbook
+  tasks:
+    - name: Display my varibles.
+      ansible.builtin.debug:
+        msg: "This is my varible - myvar1= {{ myvar1 }} ; myvar2= {{ myvar2 }}"
+      when: inventory_hostname in groups['prod']
+
+    - name: Calling variables.
+      ansible.builtin.debug:
+        msg: "Value is - {{ ansible_default_ipv4.address }} "

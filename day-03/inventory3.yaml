@@ -1,0 +1,19 @@
+prod:
+  hosts:
+   servera.lab.example.com:
+   serverb.lab.example.com:
+   serverc.lab.example.com:
+   serverd.lab.example.com:
+
+dev:
+  hosts:
+    servere.lab.example.com:
+
+test:
+  hosts:
+    serverf.lab.example.com:
+
+web:
+ hosts: 
+   serverb.lab.example.com:
+

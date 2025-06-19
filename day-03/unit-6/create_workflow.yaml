@@ -1,0 +1,19 @@
+---
+- name: ANsible workflow.
+  hosts: servera.lab.example.com
+  pre_tasks:
+    - name: Pre-task-01 
+      ansible.builtin.debug: 
+        msg: "Pre-Checks has been done via Pre-Task"
+  roles:
+    - role-01 
+  tasks:
+    - name: Task-01 
+      ansible.builtin.debug: 
+        msg: "Task has been done via Task"
+  post_tasks:
+    - name: Post Task 
+      ansible.builtin.include_role:
+         name: role-02 
+
+

@@ -1,0 +1,10 @@
+---
+- name: Example 
+  hosts: servera.lab.example.com 
+  tasks:
+    - name: All three of these assertions are true
+      ansible.builtin.assert:
+        that:
+           - "{{ [ 2, 4, 6, 8, 10, 12 ] | length }} is eq( 6 )"
+           - "{{ [ 2, 4, 6, 8, 10, 12 ] | first }} is eq( 2 )"
+           - "{{ [ 2, 4, 6, 8, 10, 12 ] | last }} is eq( 12 )"

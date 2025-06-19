@@ -1,0 +1,7 @@
+---
+- name: Role/Collection calling 
+  hosts: prod 
+  roles:
+    - apache 
+
+

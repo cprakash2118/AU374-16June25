@@ -1,0 +1,31 @@
+{
+    "_meta": {
+        "hostvars": {
+            "servera.lab.example.com": {
+                "package_name": "oracle-19c-prod",
+                "username": "devops123-prod"
+            },
+            "serverb.lab.example.com": {
+                "package_name": "oracle-19c-dev",
+                "username": "devops123-dev"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "dev",
+            "prod",
+            "ungrouped"
+        ]
+    },
+    "dev": {
+        "hosts": [
+            "serverb.lab.example.com"
+        ]
+    },
+    "prod": {
+        "hosts": [
+            "servera.lab.example.com"
+        ]
+    }
+}

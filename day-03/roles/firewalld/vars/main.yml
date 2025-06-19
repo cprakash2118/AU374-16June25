@@ -1,0 +1,3 @@
+---
+# vars file for firewalld
+port_name: http

@@ -1,0 +1,19 @@
+---
+- name: Lookup plugin example 
+  hosts: servera.lab.example.com 
+  vars_files:
+    - user_details.yaml 
+  tasks:
+   - name: Create Users
+     vars:
+       password: "{{ lookup('password', 'password-' + item.name + ' length=6 chars=digits encrypt=sha512_crypt')}}"
+       #password: "{{ lookup('password' ' length=6 chars=digits encrypt=sha512_crypt')}}"
+     ansible.builtin.user:
+       name: "{{ item.name }}"
+       uid: "{{ item.uid }}"
+       password: "{{ password }}"
+     #  update_password: on_create
+     loop: "{{ user_details }}"
+
+
+

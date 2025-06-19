@@ -1,0 +1,15 @@
+---
+- name: Server with GUI
+  hosts: servera.lab.example.com 
+  tasks:
+    - name: INstall group - Server with GUI
+      ansible.builtin.yum:
+        name: "@Server with GUI" 
+        state: present 
+
+    - name: execute this command - systemctl set-default graphical.target
+      ansible.builtin.shell: systemctl set-default graphical.target
+
+    - name: Reboot the system
+      ansible.builtin.reboot: 
+        reboot_timeout: 30

@@ -1,0 +1,16 @@
+---
+- name: Tag example
+  hosts: dev
+  tasks:
+    - name: tag name - payment-app for payment application.
+      ansible.builtin.debug:
+        msg: "Task execution - tag name - payment-app" 
+      tags: payment-app
+      when: inventory_hostname in groups['dev']
+
+    - name: tag name - booking-app for booking application.
+      ansible.builtin.debug:
+        msg: "Task execution - tag name - booking-app" 
+      tags: booking-app
+      when: inventory_hostname in groups['dev']
+

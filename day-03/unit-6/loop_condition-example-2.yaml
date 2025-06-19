@@ -1,0 +1,16 @@
+---
+- name: Loops and conditional statements.
+  hosts: all
+  vars:
+    service_list:
+         - sshd 
+         - httpd
+         - rsyslog
+
+  tasks: 
+    - name: Restart multiple services.
+      ansible.builtin.service:
+        name: "{{ item }}"
+        state: restarted 
+      loop: "{{ service_list }}"
+      when: inventory_hostname in groups['prod']

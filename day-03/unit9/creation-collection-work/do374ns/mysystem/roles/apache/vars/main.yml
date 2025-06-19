@@ -1,0 +1,13 @@
+---
+# vars file for apache
+apache_service: httpd
+pkg_list:
+ - httpd
+ - firewalld 
+
+svc_list:
+ - httpd
+ - firewalld 
+
+myvar1: my-value1-from-vars-role
+myvar2: my-value2-from-vars-role

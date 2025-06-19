@@ -1,0 +1,34 @@
+---
+- name: Tag example
+  hosts: dev 
+  tasks:
+    - name: tag name - payment-app for payment application.
+      ansible.builtin.debug:
+        msg: "Task execution - tag name - payment-app" 
+      tags: payment-app
+      when: inventory_hostname in groups['dev']
+
+    - name: tag name - booking-app for booking application.
+      ansible.builtin.debug:
+        msg: "Task execution-01 - tag name - booking-app" 
+      tags: booking-app
+      when: inventory_hostname in groups['dev']
+
+    - name: tag name - booking-app for booking application - copy-01 task
+      ansible.builtin.debug:
+        msg: "Task execution-01 - tag name - booking-app - copy-01 task" 
+      tags: booking-app
+      when: inventory_hostname in groups['dev']
+
+    - name: tag name - avl-app for avl application 
+      ansible.builtin.debug:
+        msg: "Task execution - tag name - avl-app" 
+      tags: avl-app
+      when: inventory_hostname in groups['dev']
+
+    - name: tag name - avl-app for avl application 
+      ansible.builtin.debug:
+        msg: "Task execution - without tag name" 
+      when: inventory_hostname in groups['dev']
+
+

@@ -1,0 +1,4 @@
+---
+# defaults file for apache
+myvar1: my-value1-from-default-role
+myvar2: my-value2-from-default-role

@@ -1,0 +1,10 @@
+---
+# tasks file for role-02
+- name: task-01 - from role-02
+  ansible.builtin.debug:
+    msg: "Role Name - {{ role_name1 }} ; Task Name - {{ task_name1}} "
+     
+- name: task-02 - from role-02
+  ansible.builtin.debug:
+    msg: "Role Name - {{ role_name1 }} ; Task Name - {{ task_name2}} "
+

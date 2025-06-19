@@ -1,0 +1,8 @@
+---
+- name: Disabling Fact Gathering
+  hosts: all
+  #gather_facts: false
+  tasks:
+    - name: Display task-01
+      ansible.builtin.debug:
+        msg: "Task-01"

@@ -1,0 +1,46 @@
+---
+- name: Handlers example
+  hosts: servera.lab.example.com
+  force_handlers: true
+  tasks:
+    - name: task-01
+      ansible.builtin.debug:
+        msg: "Task-01"
+    - name: task-02
+      ansible.builtin.debug:
+        msg: "Task-02"
+      changed_when: true
+      notify:
+        - restart task02 
+
+    - name: task-03
+      ansible.builtin.debug:
+        msg: "Task-03"
+      changed_when: true
+      notify:
+        - restart task03
+
+    - name: task-04
+      ansible.builtin.debug:
+        msg: "Task-04"
+      changed_when: true
+      failed_when: true
+
+    - name: task-05
+      ansible.builtin.debug:
+        msg: "Task-05"
+      changed_when: true
+      notify:
+        - restart task05
+  handlers:
+    - name: restart task02
+      ansible.builtin.debug:
+        msg: "Hadnler of 'restart task02'"
+
+    - name: restart task03
+      ansible.builtin.debug:
+        msg: "Hadnler of 'restart task03'"
+     
+    - name: restart task05
+      ansible.builtin.debug:
+        msg: "Hadnler of 'restart task05'"

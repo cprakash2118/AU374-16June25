@@ -1,0 +1,13 @@
+all:
+  children:
+    dev:
+      hosts:
+        serverb.lab.example.com:
+          package_name: oracle-19c-dev
+          username: devops123-dev
+    prod:
+      hosts:
+        servera.lab.example.com:
+          package_name: oracle-19c-prod
+          username: devops123-prod
+    ungrouped: {}

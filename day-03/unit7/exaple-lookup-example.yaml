@@ -1,0 +1,16 @@
+---
+- name: Lookup example
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Example 
+      vars:
+        my_hosts: "{{ query('ansible.builtin.file', '/etc/hosts', '/etc/issue') }}"
+      ansible.builtin.debug:
+        msg: "{{ my_hosts }}"
+      when: inventory_hostname in groups['dev']
+
+    - name: Example 2
+      vars:
+        my_hosts2: "{{ lookup('ansible.builtin.file', '/etc/hosts', '/etc/issue') }}"
+      ansible.builtin.debug:
+        msg: "{{ my_hosts2 }}"

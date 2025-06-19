@@ -1,0 +1,19 @@
+---
+- name: Role/Collection calling 
+  hosts: prod 
+  pre_tasks: 
+    - name: pre_task-01 
+      ansible.builtin.debug: 
+        msg: "pre_task has been done - pre_task-01 \n"
+  roles:
+    - apache 
+  tasks:
+    - name: task-01 
+      ansible.builtin.debug: 
+        msg: "Task has been done - task-01 \n"
+  post_tasks:
+    - name: post_task-01 
+      ansible.builtin.debug: 
+        msg: "post Task has been done - post_task-01 \n"
+
+

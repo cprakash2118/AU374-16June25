@@ -1,0 +1,25 @@
+---
+- name: Multiple services restart.
+  hosts: all
+  gather_facts: false
+  vars: 
+    service_list: 
+      - rsyslog 
+      - sshd
+      - httpd 
+  tasks:
+    - name: Pre-Checks - task01 
+      ansible.builtin.debug:
+        msg: "Pre-Checks has been done."
+
+    - name: Install httpd 
+      ansible.builtin.yum:
+        name: httpd 
+        state: present
+
+    - name: Restart all services - task02 
+      ansible.builtin.service:
+        name: "{{ item }}"
+        state: restarted 
+      loop: "{{ service_list }}"
+

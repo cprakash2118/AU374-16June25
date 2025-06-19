@@ -1,0 +1,13 @@
+---
+- name:  play-01 - Gather facts for everyone
+  hosts: all 
+  gather_facts: true
+
+- name:  The next play, does not gather facts
+  hosts: all 
+  gather_facts: false 
+  tasks:
+    - name: My IP, MAC details.
+      ansible.builtin.debug:
+        msg: "IP Address = {{ansible_default_ipv4.address }}  ; MAC Address = {{ansible_default_ipv4.macaddress}} "
+

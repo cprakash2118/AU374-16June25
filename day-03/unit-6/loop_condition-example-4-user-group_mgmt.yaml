@@ -1,0 +1,47 @@
+---
+- name: Groups and Users mgmt.
+  hosts: all 
+  tasks:
+  - name: Block part
+    become: true
+    block:
+    - name: Group Creation - Passing list to loop.
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present 
+      when: inventory_hostname in groups['prod']
+      loop: 
+         - unixadm21 
+         - dbadm21
+
+    - name: User Creation - Passing list dic to loop.
+      ansible.builtin.user:
+        name: "{{ item.user_name }}"
+        uid: "{{ item.uid_no }}"
+        group: "{{ item.group_p }}"
+      when: inventory_hostname in groups['prod']
+      loop:
+         - {user_name: user111 , uid_no: 123411 , group_p: unixadm21}
+         - {user_name: user211 , uid_no: 432111 , group_p: dbadm21 }
+
+    - name: Fail this task.
+      ansible.builtin.debug: 
+         msg: "Task failed !"
+      failed_when: true 
+    rescue:
+    - name: Groups Creation - outside the block.
+      ansible.builtin.group:
+        name: app01 
+        state: present 
+    always:
+    - name: Groups Creation - outside the block-2
+      ansible.builtin.group:
+        name: app03 
+        state: present 
+- name: New play 
+  hosts: prod
+  tasks:
+   - name: Groups Creation - outside the block-3
+     ansible.builtin.group:
+          name: app03 
+          state: present 

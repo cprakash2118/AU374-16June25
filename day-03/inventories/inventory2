@@ -1,0 +1,16 @@
+
+[prod]
+serverc.lab.example.com 
+
+
+[prod:vars]
+username=devops123-prod
+package_name=oracle-19c-prod
+
+[dev]
+serverd.lab.example.com 
+
+[dev:vars]
+username=devops123-dev
+package_name=oracle-19c-dev
+

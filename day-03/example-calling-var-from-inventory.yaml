@@ -1,0 +1,8 @@
+---
+- name: Calling variable from inventory 
+  hosts: all 
+  tasks:
+    - name: 1st Task 
+      ansible.builtin.debug:
+        msg: "This is my values - {{ username}} & package name - {{package_name }}"
+      when: inventory_hostname in groups['prod'] or inventory_hostname in groups['dev']

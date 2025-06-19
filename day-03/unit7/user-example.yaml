@@ -1,0 +1,20 @@
+---
+- name: Customization for user profile using filters and plugins 
+  hosts: servera.lab.example.com
+  vars:
+    user_list:
+     - {name: ram }
+     - {name: mack, system: true }
+     - {name: tom, shell: "/bin/tcsh" }
+  tasks:
+    - name: Manage user
+      ansible.builtin.user:
+          #name: "{{ item['name'] }}"
+          name: "{{ item.name }}"
+          groups: "{{ item['groups'] | default(omit) }}" 
+          system: "{{ item['system'] | default(false) }}" 
+          shell: "{{ item['shell'] | default('/bin/bash') }}" 
+          state: "{{ item['state'] | default('present') }}" 
+          remove: "{{ item['remove'] | default(false) }}" 
+      loop: "{{ user_list }}"
+          

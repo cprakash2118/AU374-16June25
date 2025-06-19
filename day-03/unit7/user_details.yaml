@@ -1,0 +1,10 @@
+user_details:
+  - name: user1 
+    uid: 12123
+  - name: user2 
+    uid: 12124
+  - name: user3 
+    uid: 12125
+  - name: user4 
+    uid: 12126
+
